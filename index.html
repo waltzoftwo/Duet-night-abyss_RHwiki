@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duet Night Abyss : 레베카×헬파이어</title>
+    <title>아스트롤라베 연대기 : 이중 전설록</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -114,7 +114,7 @@
                     <i class="fa-solid fa-download"></i>
                     <span>EXPORT CODES</span>
                 </button>
-                <button onclick="importDataPrompt()" class="px-3.5 py-1.5 border border-antique-border/30 bg-antique-panel hover:bg-antique-panelLight text-antique-lightGold hover:text-white text-[11px] font-bold font-serif-eng tracking-wider rounded transition-all flex items-center space-x-1.5">
+                <button onclick="importDataPrompt()" class="px-3.5 py-1.5 border border-antique-border/30 bg-antique-panel hover:bg-antique-panelLight text-antique-gold hover:text-white text-[11px] font-bold font-serif-eng tracking-wider rounded transition-all flex items-center space-x-1.5">
                     <i class="fa-solid fa-upload"></i>
                     <span>RESTORE BACKUP</span>
                 </button>
@@ -133,7 +133,7 @@
                 <div id="banner-overlay" class="absolute inset-0 bg-black/70 hidden z-0"></div>
 
                 <!-- 대문 편집 전용 단추 -->
-                <button onclick="openBannerEditModal()" class="absolute top-4 right-4 p-2.5 bg-antique-panel/85 hover:bg-antique-panelLight border border-antique-gold/30 hover:border-antique-gold text-antique-lightGold hover:text-antique-base text-[10px] font-bold tracking-widest font-serif-eng rounded transition-all duration-300 flex items-center space-x-1.5 z-20">
+                <button onclick="openBannerEditModal()" class="absolute top-4 right-4 p-2.5 bg-antique-panel/85 hover:bg-antique-panelLight border border-antique-border hover:border-antique-gold text-antique-lightGold hover:text-antique-base text-[10px] font-bold tracking-widest font-serif-eng rounded transition-all duration-300 flex items-center space-x-1.5 z-20">
                     <i class="fa-solid fa-pen-nib"></i>
                     <span>EDIT BANNER</span>
                 </button>
@@ -391,27 +391,12 @@
     <!-- 백업 코드 가져오기 모달 -->
     <div id="backup-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
         <div class="bg-antique-panel rounded-xl border border-white/30 max-w-lg w-full p-6 space-y-4 shadow-2xl transform scale-95 transition-transform duration-300" id="backup-modal-card">
-            <div class="flex justify-between items-center border-b border-antique-border pb-3">
-                <h3 class="text-sm font-bold text-antique-lightGold font-serif-eng tracking-widest uppercase flex items-center">
-                    <i class="fa-solid fa-key mr-2 text-[#ffffff]"></i> BACKUP CODE MANAGER
-                </h3>
-                <button onclick="closeBackupModal()" class="text-antique-textMuted hover:text-antique-lightGold">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
+            <div class="flex justify-between items-center border-b border-white/30 rounded bg-antique-base text-white font-mono text-[10px] focus:outline-none">
+                CLOSE
             </div>
-            <p class="text-[11px] text-antique-textMuted leading-relaxed">
-                아래 텍스트 상자의 문자 코드는 현재 수정한 두 명의 캐릭터 정보 사본입니다. 이를 별도로 메모장 같은 곳에 저장해 두셨다가 필요할 때 'RESTORE BACKUP' 단추로 붙여넣으면 언제든 마지막 수정본으로 시작할 수 있습니다.
-            </p>
-            <textarea id="backup-textarea" readonly class="w-full h-40 px-3 py-2 border border-white/30 rounded bg-antique-base text-white font-mono text-[10px] focus:outline-none"></textarea>
-            
-            <div class="flex justify-end space-x-2 pt-2">
-                <button onclick="closeBackupModal()" class="px-3.5 py-1.5 border border-white/30 rounded bg-antique-base text-white font-mono text-[10px] focus:outline-none">
-                    CLOSE
-                </button>
-                <button onclick="copyBackupText()" class="px-4 py-1.5 bg-[#2c2c2e] border border-white text-white text-[11px] font-bold rounded hover:bg-white hover:text-black transition-all">
-                    COPY CODES
-                </button>
-            </div>
+            <button onclick="copyBackupText()" class="px-4 py-1.5 bg-[#2c2c2e] border border-white text-white text-[11px] font-bold rounded hover:bg-white hover:text-black transition-all">
+                COPY CODES
+            </button>
         </div>
     </div>
 
@@ -987,7 +972,6 @@
         // [정교화 기획] 왼쪽 카드 상단 파란색(#3E8EDE), 오른쪽 카드 하단 빨간색(#F23920) 그라데이션 장식 탑재 (모서리에 가까울수록 선명해지는 방향 조율)
         // [높이 규격화] 상단부는 우측 기준 일치, 하단부는 좌측 기준 일치하며 중앙 콘텐츠 영역의 가로세로 폭이 남는 공간만큼 유동적으로 확장됨
         // [레이아웃 수직 복구 + 우상단 적층 복원 + 1px 미세 상단 조정] 세계선 정보와 연령 수치를 우상단 2줄 적층형으로 복원 적용 완료 (요청에 따라 각 파트 위로 1px씩 정밀 리로케이션)
-        // [상단 여백 수정] topStyle 영역의 윗여백을 pt-10 sm:pt-11로 넉넉히 확장하고, h-[85px] sm:h-[105px]로 웅장하게 고쳐 성명이 아래로 편안히 안착되도록 정비
         function renderHomeCards() {
             const container = document.getElementById('home-cards-container');
             if (!container) return;
@@ -1034,8 +1018,8 @@
                 const cardHtml = `
                     <div onclick="openWiki(${i})" class="group bg-antique-panel hover:bg-[#1a1410] border border-antique-border hover:border-white/50 rounded-2xl cursor-pointer transition-all duration-500 hover:-translate-y-1 flex flex-col justify-between h-auto sm:h-[420px] overflow-hidden box-glow relative">
                         
-                        <!-- 상단: 이름 및 칭호 표시 영역 (경계선 border-b 완전히 삭제, [복원] 우상단 2줄로 세계선 및 연령 표시, [수정] 윗여백을 pt-10 sm:pt-11로 한층 확장하고 h-[105px]로 넉넉하게 감싸 성명이 아래로 편안히 안착되도록 정비) -->
-                        <div class="px-6 pt-10 pb-3 sm:px-8 sm:pt-11 sm:pb-3.5 z-10 flex justify-between items-end shrink-0 h-[85px] sm:h-[105px]" ${topStyle}>
+                        <!-- 상단: 이름 및 칭호 표시 영역 (경계선 border-b 완전히 삭제, [수정] 윗여백을 pt-10 sm:pt-11로 한층 확장하고 높이를 h-[90px] sm:h-[105px]로 소폭 보정 후 h3와 span에 relative top-[-1px]를 지정하여 위로 1px씩 정교하게 인상시킴) -->
+                        <div class="px-6 pt-10 pb-3 sm:px-8 sm:pt-11 sm:pb-3.5 z-10 flex justify-between items-end shrink-0 h-[90px] sm:h-[105px]" ${topStyle}>
                             <div class="flex flex-col justify-end">
                                 <h3 class="relative top-[-1px] text-xl sm:text-2xl font-bold text-antique-lightGold group-hover:text-white transition-colors truncate max-w-[150px] sm:max-w-[240px] leading-tight">
                                     ${char.name}
@@ -1182,7 +1166,7 @@
             // 5. 모든 가변적/유연한 분할 다단 및 정렬 순서 리스트 렌더링
             renderDynamicSections();
 
-            // 읽기/쓰기 영역 노출 제어 호출
+            // 읽기/쓰기 영역 노출 제어 호출 (TypeError를 방지하기 위해 이 시점에 안전하게 호출)
             toggleEditFields();
             
             // 기존 접힘 상태 복구 적용
@@ -1468,22 +1452,16 @@
             renderWikiDoc(); // 프로필 테이블 정비 및 갱신 호출
         }
 
-        // 입력 폼 필드 가시성 스위칭 (새 라벨 편집용 태그 매칭)
+        // 입력 폼 필드 가시성 스위칭
         function toggleEditFields() {
             const readActions = document.getElementById('read-actions');
             const editActions = document.getElementById('edit-actions');
             const addSecBtn = document.getElementById('add-section-container');
             const editImgPanel = document.getElementById('edit-image-panel');
 
-            // 기본 필드 토글 대상 (새 라벨 에디터 포함)
-            const textViews = [
-                'view-info-name',
-                'view-label-series', 'view-label-role', 'view-label-age', 'view-label-birthday', 'view-label-stats', 'view-label-cv'
-            ];
-            const textEdits = [
-                'edit-info-name',
-                'edit-label-series', 'edit-label-role', 'edit-label-age', 'edit-label-birthday', 'edit-label-stats', 'edit-label-cv'
-            ];
+            // 기본 필드 토글 대상 (상세 인포박스 이름만 존재하도록 깔끔히 정리)
+            const textViews = ['view-info-name'];
+            const textEdits = ['edit-info-name'];
 
             if (isEditMode) {
                 readActions.classList.add('hidden');
@@ -1525,7 +1503,7 @@
                 });
                 textEdits.forEach(id => {
                     const el = document.getElementById(id);
-                    if (el) el.classList.remove('hidden');
+                    if (el) el.classList.add('hidden');
                 });
 
                 document.querySelectorAll('.section-title-view').forEach(el => el.classList.remove('hidden'));
@@ -1707,4 +1685,3 @@
     </script>
 </body>
 </html>
-
