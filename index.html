@@ -443,7 +443,7 @@
         // 대문 설정 데이터 구조
         let wikiSettings = {
             bannerTitle: "성좌의 두 인물록",
-            bannerSubTitle: "Dual Codex Archives", // 자유롭게 멘트 수정 가능한 영역 확보
+            bannerSubTitle: "Duet Night Abyss", // 자유롭게 멘트 수정 가능한 영역 확보
             bannerDesc: "그와 행복한 것보다 당신 곁에서 불행한 것이 좋아.",
             bannerImgUrl: ""
         };
@@ -654,7 +654,7 @@
             const overlayEl = document.getElementById('banner-overlay');
 
             if (titleEl) titleEl.textContent = wikiSettings.bannerTitle;
-            if (subTitleEl) subTitleEl.textContent = wikiSettings.bannerSubTitle || "Dual Codex Archives";
+            if (subTitleEl) subTitleEl.textContent = wikiSettings.bannerSubTitle || "Duet Night Abyss";
             if (descEl) descEl.textContent = wikiSettings.bannerDesc;
 
             if (bannerEl) {
@@ -672,7 +672,7 @@
 
         function openBannerEditModal() {
             document.getElementById('edit-banner-title').value = wikiSettings.bannerTitle;
-            document.getElementById('edit-banner-subtitle').value = wikiSettings.bannerSubTitle || "Dual Codex Archives";
+            document.getElementById('edit-banner-subtitle').value = wikiSettings.bannerSubTitle || "Duet Night Abyss";
             document.getElementById('edit-banner-desc').value = wikiSettings.bannerDesc;
             document.getElementById('edit-banner-img-url').value = wikiSettings.bannerImgUrl || "";
             document.getElementById('edit-banner-img-file').value = ""; // 파일 선택 초기화
@@ -1605,7 +1605,7 @@
                     loadedCharacters = parsed;
                     wikiSettings = {
                         bannerTitle: "성좌의 두 인물록",
-                        bannerSubTitle: "Dual Codex Archives",
+                        bannerSubTitle: "Duet Night Abyss",
                         bannerDesc: "시간의 축 중심에 정렬된 두 자취입니다. 아래 성명을 선택하여 그들의 상세 인포박스를 열람하고, 새로운 자서 기록을 수시로 덧붙이고 수정해 보십시오.",
                         bannerImgUrl: ""
                     };
@@ -1651,7 +1651,7 @@
                 });
 
                 if (!wikiSettings.bannerSubTitle) {
-                    wikiSettings.bannerSubTitle = "Dual Codex Archives";
+                    wikiSettings.bannerSubTitle = "Duet Night Abyss";
                 }
 
                 characters[0] = loadedCharacters[0];
